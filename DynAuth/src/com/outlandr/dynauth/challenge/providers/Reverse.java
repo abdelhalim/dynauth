@@ -6,10 +6,6 @@ public class Reverse extends TextChallengeProvider {
 
 	private Info info;
 	
-	public Reverse() {
-		ID = "com.outlandr.dynauth.reverse";	
-	}
-	
 	@Override
 	public String getChallenge(Info info) {
 		this.info = info;
@@ -35,4 +31,9 @@ public class Reverse extends TextChallengeProvider {
 		return true;
 	}
 
+
+	@Override
+	public String getID() {
+		return "com.outlandr.dynauth.reverse";	
+	}
 }

@@ -11,9 +11,6 @@ public class Substring extends TextChallengeProvider {
 	private int to;
 	private Random rn = new Random();
 	
-	public Substring() {
-		ID = "com.outlandr.dynauth.substring";
-	}
 
 	@Override
 	public String getChallenge(Info info) {
@@ -60,5 +57,9 @@ public class Substring extends TextChallengeProvider {
 		return true;
 	}
 
+	@Override
+	public String getID() {
+		return  "com.outlandr.dynauth.substring";
+	}
 
 }

@@ -10,9 +10,13 @@ public class RandomTextChallengeProvider extends ChallengeProviderBase {
 	}
 
 	@Override
-	public String getChallenge() {
-		
+	public String getChallenge() {		
 		return "Enter some random text";
+	}
+
+	@Override
+	public String getID() {
+		return "com.outlandr.dynauth.randomtext";
 	}
 
 }

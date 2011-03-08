@@ -10,10 +10,6 @@ public class Picky extends TextChallengeProvider {
 	private Info info;
 	private int challengePosition;
 	private Random rn = new Random();
-
-	public Picky() {
-		ID = "com.outlandr.dynauth.picky";
-	}
 	
 	@Override
 	public String getChallenge(Info info) {
@@ -21,7 +17,8 @@ public class Picky extends TextChallengeProvider {
 		challengePosition = Math.abs(rn.nextInt()) % info.getAnswer().length();
 		return info.getQuestion() + 
 			"<br>" +
-			"Enter only character at position " + challengePosition;
+			"Enter only character at position " 
+			+ "<img src=\"images/i" + challengePosition + ".png\"/>";
 	}
 
 	@Override
@@ -35,5 +32,9 @@ public class Picky extends TextChallengeProvider {
 		return true;
 	}
 
+	@Override
+	public String getID() {
+		return "com.outlandr.dynauth.picky";
+	}
 
 }

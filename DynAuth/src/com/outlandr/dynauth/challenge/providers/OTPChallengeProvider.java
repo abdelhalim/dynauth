@@ -5,10 +5,6 @@ import com.yubico.client.v1.YubicoClient;
 
 public class OTPChallengeProvider extends ChallengeProviderBase {
 
-
-	public OTPChallengeProvider() {
-		ID = "com.outlandr.dynauth.otp";
-	}
 	
 	@Override
 	public boolean validateResponse(String response) {
@@ -27,7 +23,11 @@ public class OTPChallengeProvider extends ChallengeProviderBase {
 
 	@Override
 	public String getChallenge() {
-		return "Enter your OTP:";
+		return "Enter your Yubikey OTP:";
 	}
 
+	@Override
+	public String getID() {
+		return "com.outlandr.dynauth.otp";
+	}
 }
