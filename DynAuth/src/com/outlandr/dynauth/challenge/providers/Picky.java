@@ -27,9 +27,15 @@ public class Picky extends TextChallengeProvider {
 
 	@Override
 	public boolean validateResponse(String response) {
+		
+		// The response must be one character only
 		if (response.length() > 1)
 			return false;
-		
+		/*
+		 * Check the response and expected answer
+		 * The character at position 'challengePosition' 
+		 * should match the response.
+		 */
 		if (response.charAt(0) != info.getAnswer().charAt(challengePosition))
 			return false;
 		

@@ -19,10 +19,17 @@ public class Substring extends TextChallengeProvider {
 	public String getChallenge(Info info) {
 		this.info = info;
 		
-		if (info.getAnswer().length() < 2) {
+		/* if the answer length is 1 
+		 * both from and to should be '0'
+		 */
+		if (info.getAnswer().length() == 1) {
 			from = to = 0;
 		} else {
 		
+			/* Generate random 'from', and 'to' values
+			 * where from < to
+			 */
+			
 			from = Math.abs(rn.nextInt()) % info.getAnswer().length();
 			to = Math.abs(rn.nextInt()) % info.getAnswer().length();
 			

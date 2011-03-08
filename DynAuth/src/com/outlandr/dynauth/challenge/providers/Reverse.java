@@ -28,6 +28,9 @@ public class Reverse extends TextChallengeProvider {
 		if (length != info.getAnswer().length())
 			return false;
 		
+		/* The response and expected answer should match, but 
+		 * with reversed order 
+		 */
 		for (int i=0; i<length; i++) {
 			if (response.charAt(i) != info.getAnswer().charAt(length - i -1)) {
 				return false;
