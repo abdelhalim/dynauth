@@ -32,7 +32,7 @@ public class DynAuthServlet extends HttpServlet {
 				if (!isValid) {
 					// return error
 					// redirect back to login
-					
+					resp.sendRedirect("/login.jsp");
 					return;
 				} 
 			}
@@ -41,6 +41,8 @@ public class DynAuthServlet extends HttpServlet {
 		
 		// all challenges are passed with VALID responses.
 		// continue
+		resp.setContentType("text/plain");
+		resp.getWriter().println("Congratulations!! Authenticated correctly");
 		
 	}
 }
