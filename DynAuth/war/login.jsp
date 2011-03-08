@@ -6,7 +6,8 @@
 <html>
   <body>
   <img src="/DynAuth.png" style="width: 640px; height: 100px;">
-
+  
+  <!-- Basic Authentication using username/password -->
 
   <form action="/sign" method="post">
     <table border="0" cellpadding="0" cellspacing="0"> 
