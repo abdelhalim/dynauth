@@ -12,8 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
-import com.outlandr.dynauth.user.Info;
 import com.outlandr.dynauth.user.UserInfos;
+
+/*
+ * Basic Authentication Servlet
+ * Responsible for authentication using the username/password
+ * 
+ */
 
 public class BasicAuthServlet extends HttpServlet {
     private static final Logger log = Logger.getLogger(BasicAuthServlet.class.getName());

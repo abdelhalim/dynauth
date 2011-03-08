@@ -3,7 +3,11 @@ package com.outlandr.dynauth.challenge.providers;
 import java.util.Random;
 
 import com.outlandr.dynauth.user.Info;
-
+/*
+ * Picky Challenge Provider
+ * challenge the user by asking for selected characters from his stored
+ * info
+ */
 public class Picky extends TextChallengeProvider {
 
 	

@@ -2,6 +2,11 @@ package com.outlandr.dynauth.challenge.providers;
 
 import com.outlandr.dynauth.user.Info;
 
+/*
+ * Reverse Challenge Provider
+ * challenge the user by asking for the info in reverse order
+ */
+
 public class Reverse extends TextChallengeProvider {
 
 	private Info info;

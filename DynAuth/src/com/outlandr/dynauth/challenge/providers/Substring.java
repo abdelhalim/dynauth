@@ -3,7 +3,10 @@ package com.outlandr.dynauth.challenge.providers;
 import java.util.Random;
 
 import com.outlandr.dynauth.user.Info;
-
+/*
+ * Substring Challenge Provider
+ * challenge the user by asking for a substring from his stored info
+ */
 public class Substring extends TextChallengeProvider {
 
 	private Info info;
