@@ -2,6 +2,10 @@ package com.outlandr.dynauth.challenge.providers;
 
 import com.outlandr.dynauth.challenge.ChallengeProviderBase;
 
+/*
+ * accepts any entered text, The purpose is just to confuse any keylogger
+ * 
+ */
 public class RandomTextChallengeProvider extends ChallengeProviderBase {
 
 	@Override

@@ -1,5 +1,8 @@
 package com.outlandr.dynauth;
 
+/*
+ * Information Provider, stores a question for the user
+ */
 public class InfosProvider {
 	
 	private String id;

@@ -14,6 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.outlandr.dynauth.user.Info;
 import com.outlandr.dynauth.user.UserInfos;
 
+/*
+ * Signup and add new user
+ */
 public class Signup extends HttpServlet {
     private static final Logger log = Logger.getLogger(BasicAuthServlet.class.getName());
 
@@ -21,10 +24,30 @@ public class Signup extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		
+		/*
+		 * Get the parameters
+		 *   username
+		 *   password, and password-retype
+		 */
 		String username = req.getParameter("username");
         String password = req.getParameter("password");
+        String passwordReType = req.getParameter("password2");
         
+        /*
+         * If password and passwordRetype doesn't match, issue
+         * a warning to the user, and redirect again to adduser 
+         * page
+         */
+        if (!password.equals(passwordReType)) {
+        	log.info("Passwords doesn't match");
+        	resp.sendRedirect("/adduser.jsp");
+        	return;
+        }
+        
+        /*
+         * Create new user info object, and store the entered information
+         * 
+         */
         UserInfos userInfos = new UserInfos(username, password);
                 
         Enumeration<String> parameterNames = req.getParameterNames();
@@ -50,7 +73,9 @@ public class Signup extends HttpServlet {
         	}
         }
         
-        
+        /*
+         * If everything worked fine, persist the user information
+         */
         PersistenceManager pm = PMF.get().getPersistenceManager();
         try {
             pm.makePersistent(userInfos);
@@ -58,6 +83,9 @@ public class Signup extends HttpServlet {
             pm.close();
         }
 		
+        /*
+         * Now redirect to the login page
+         */
         resp.sendRedirect("/login.jsp");
 
 	}
