@@ -1,9 +1,8 @@
 package com.outlandr.dynauth.challenge.providers;
 
-import com.outlandr.dynauth.challenge.ChallengeProviderBase;
 import com.outlandr.dynauth.user.Info;
 
-public class Reverse extends ChallengeProviderBase {
+public class Reverse extends TextChallengeProvider {
 
 	private Info info;
 	
@@ -14,9 +13,9 @@ public class Reverse extends ChallengeProviderBase {
 	@Override
 	public String getChallenge(Info info) {
 		this.info = info;
-		return "Enter the answer to the below question reversed"
+		return info.getQuestion() 
 		+ "<br>"
-		+ info.getQuestion();
+		+ "Enter the answer reversed";
 	}
 
 	@Override

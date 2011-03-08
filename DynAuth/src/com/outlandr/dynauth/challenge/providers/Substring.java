@@ -2,10 +2,9 @@ package com.outlandr.dynauth.challenge.providers;
 
 import java.util.Random;
 
-import com.outlandr.dynauth.challenge.ChallengeProviderBase;
 import com.outlandr.dynauth.user.Info;
 
-public class Substring extends ChallengeProviderBase {
+public class Substring extends TextChallengeProvider {
 
 	private Info info;
 	private int from;

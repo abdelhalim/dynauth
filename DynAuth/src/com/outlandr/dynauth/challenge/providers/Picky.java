@@ -2,10 +2,9 @@ package com.outlandr.dynauth.challenge.providers;
 
 import java.util.Random;
 
-import com.outlandr.dynauth.challenge.ChallengeProviderBase;
 import com.outlandr.dynauth.user.Info;
 
-public class Picky extends ChallengeProviderBase {
+public class Picky extends TextChallengeProvider {
 
 	
 	private Info info;

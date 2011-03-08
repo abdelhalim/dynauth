@@ -3,6 +3,7 @@
 <%@ page import="javax.jdo.PersistenceManager" %>
 
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.Random" %>
 
@@ -11,6 +12,8 @@
 <%@ page import="com.outlandr.dynauth.user.UserInfos" %>
 <%@ page import="com.outlandr.dynauth.challenge.ChallengeManager" %>
 <%@ page import="com.outlandr.dynauth.challenge.ChallengeProvider" %>
+<%@ page import="com.outlandr.dynauth.challenge.providers.TextChallengeProvider" %>
+<%@ page import="com.outlandr.dynauth.challenge.providers.OTPChallengeProvider" %>
 
 
 <html>
@@ -29,22 +32,36 @@
    UserInfos userInfo = userInfos.get(0);
    infos = userInfo.getInfos();
    
-   for (int i = 0; i < infos.size() ; i++) {
-   	 if (i > 3)
-   	   break;
+   String challengeText = null;
+  
+   ChallengeProvider[] providers = ChallengeManager.getChallengeProviders(); 
+  
+   List usedProviders = new ArrayList();
+   for (int i = 0; i < 3 ; i++) {
+   	 int index;
+   	 do {
+   	   
+   	   // Get random provider
+   	   index = java.lang.Math.abs(rn.nextInt()) % (providers.length);
    	 
-   	 ChallengeProvider[] providers = ChallengeManager.getChallengeProviders();
-   	 int index = java.lang.Math.abs(rn.nextInt()) % (providers.length);
+   	 } while (usedProviders.contains(index));
+   	 
    	 ChallengeProvider provider = providers[index];
+   	 usedProviders.add(index);
    	 
-     String id = session.getId();
-     Info info = infos.get(i);
-     session.setAttribute(info.getId(), provider);
+   	 if (provider instanceof TextChallengeProvider) {
+   	   index = java.lang.Math.abs(rn.nextInt()) % (infos.size());
+   	   challengeText = ((TextChallengeProvider)provider).getChallenge(infos.get(index));
+   	 } else if (provider instanceof OTPChallengeProvider) {
+   	   challengeText = provider.getChallenge();
+   	 }
+   	 
+     session.setAttribute(provider.getID(), provider);
      
 %>
 <form action="/dynauth" method="post">
-<div><%= provider.getChallenge(info) %> </div>
-<div><input type="text" name="<%= info.getId() %>" /></div><p>
+<div><%= challengeText %> </div>
+<div><input type="text" name="<%= provider.getID() %>" /></div><p>
 
 
 <%   	
