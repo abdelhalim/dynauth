@@ -12,6 +12,4 @@ public interface ChallengeProvider {
 	
 	public boolean validateResponse(String response);
 	
-	public Map<String, Integer> getParameters();
-
 }
