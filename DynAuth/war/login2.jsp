@@ -52,7 +52,7 @@
    	 if (provider instanceof TextChallengeProvider) {
    	   index = java.lang.Math.abs(rn.nextInt()) % (infos.size());
    	   challengeText = ((TextChallengeProvider)provider).getChallenge(infos.get(index));
-   	 } else if (provider instanceof OTPChallengeProvider) {
+   	 } else {
    	   challengeText = provider.getChallenge();
    	 }
    	 
