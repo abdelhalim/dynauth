@@ -8,6 +8,7 @@ public class InfosManager {
 	static {
 		infos.add(new InfosProvider("id1", "What is the name of street you grow in?"));
 		infos.add(new InfosProvider("id2", "What is the name of your pet?"));
+		infos.add(new InfosProvider("id3", "Where did you spend you childhood?"));
 	}
 
 	
