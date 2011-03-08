@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	<servlet>
+		<servlet-name>DynAuth</servlet-name>
+		<servlet-class>com.outlandr.dynauth.DynAuthServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DynAuth</servlet-name>
+		<url-pattern>/dynauth</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+        <servlet-name>sign</servlet-name>
+        <servlet-class>com.outlandr.dynauth.BasicAuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sign</servlet-name>
+        <url-pattern>/sign</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>
+        <servlet-name>signup</servlet-name>
+        <servlet-class>com.outlandr.dynauth.Signup</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>signup</servlet-name>
+        <url-pattern>/signup</url-pattern>
+    </servlet-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>login.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
